@@ -23,6 +23,7 @@ locals {
 }
 
 data "aws_lambda_function" "existing" {
+  count         = var.s3_existing_package == null ? 1 : 0
   function_name = var.function_name
 }
 
